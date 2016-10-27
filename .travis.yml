@@ -9,3 +9,4 @@ before_install:
 
 script:
   - docker run --rm -it hrektts/plantuml plantuml -version
+  - docker run -u 1000:1000 --rm -it hrektts/plantuml plantuml -version

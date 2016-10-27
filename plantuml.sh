@@ -2,4 +2,4 @@
 
 set -e
 
-java -jar /root/java/plantuml/plantuml.jar $@
+java -jar /usr/share/java/plantuml.jar $@

@@ -1,7 +1,7 @@
 FROM hrektts/ubuntu:16.04.20161010
 MAINTAINER mps299792458@gmail.com
 
-WORKDIR /root/java/plantuml
+WORKDIR /usr/share/java
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
  && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
