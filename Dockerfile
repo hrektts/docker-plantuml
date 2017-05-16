@@ -1,4 +1,4 @@
-FROM hrektts/ubuntu:16.04.20161010
+FROM hrektts/ubuntu:16.04.20170417.1
 MAINTAINER mps299792458@gmail.com
 
 WORKDIR /usr/share/java
