@@ -1,5 +1,8 @@
 FROM hrektts/ubuntu:16.04.20170417.1
-MAINTAINER mps299792458@gmail.com
+LABEL maintainer "mps299792458@gmail.com" \
+      com.katsutoshihorie.version="1.2017.13"
+
+ENV PLANTUML_VERSION="1.2017.13"
 
 WORKDIR /usr/share/java
 
@@ -11,7 +14,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
     | debconf-set-selections \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     curl oracle-java8-installer maven graphviz fonts-takao-pgothic \
- && curl -JLOsS http://sourceforge.net/projects/plantuml/files/plantuml.jar/download \
+ && curl -o plantuml.jar -JLsS \
+    http://sourceforge.net/projects/plantuml/files/plantuml.${PLANTUML_VERSION}.jar/download \
  && rm -rf /var/lib/apt/lists/*
 
 COPY plantuml.sh /usr/local/bin/plantuml
