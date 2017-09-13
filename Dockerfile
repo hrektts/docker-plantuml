@@ -1,8 +1,8 @@
 FROM hrektts/ubuntu:16.04.20170802
 LABEL maintainer "mps299792458@gmail.com" \
-      com.katsutoshihorie.version="1.2017.15"
+      com.katsutoshihorie.version="1.2017.16"
 
-ENV PLANTUML_VERSION="1.2017.15"
+ENV PLANTUML_VERSION="1.2017.16"
 
 WORKDIR /usr/share/java
 
