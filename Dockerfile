@@ -1,8 +1,8 @@
 FROM hrektts/ubuntu:latest
 LABEL maintainer="mps299792458@gmail.com" \
-      version="1.2017.20"
+      version="1.2018.2"
 
-ENV PLANTUML_VERSION="1.2017.20"
+ENV PLANTUML_VERSION="1.2018.2"
 
 WORKDIR /usr/share/java
 
