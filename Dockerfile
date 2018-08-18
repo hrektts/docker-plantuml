@@ -5,22 +5,28 @@ LABEL maintainer="mps299792458@gmail.com" \
 
 WORKDIR /usr/share/java
 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
- && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
-    > /etc/apt/sources.list.d/webupd8team-java.list \
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    software-properties-common \
+ && add-apt-repository ppa:linuxuprising/java \
  && apt-get update \
- && echo "oracle-java9-installer shared/accepted-oracle-license-v1-1 select true" \
+ && echo "oracle-java10-installer shared/accepted-oracle-license-v1-1 select true" \
     | debconf-set-selections \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    curl oracle-java9-installer maven graphviz fonts-takao-pgothic \
+    oracle-java10-installer \
+    curl \
+    oracle-java10-set-default \
+    graphviz \
+    fonts-takao-pgothic \
  && curl -o plantuml.jar -JLsS \
     http://sourceforge.net/projects/plantuml/files/plantuml.${PLANTUML_VERSION}.jar/download \
+ && DEBIAN_FRONTEND=noninteractive apt-get --purge remove -y \
+    software-properties-common \
+ && DEBIAN_FRONTEND=noninteractive apt-get --purge autoremove -y \
  && rm -rf /var/lib/apt/lists/*
 
 COPY plantuml.sh /usr/local/bin/plantuml
 RUN chmod 755 /usr/local/bin/plantuml
-
-ENV JAVA_HOME=/usr/lib/jvm/java-9-oracle
 
 WORKDIR /data
 VOLUME ["/data"]
