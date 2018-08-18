@@ -1,4 +1,4 @@
-FROM hrektts/ubuntu:latest
+FROM ubuntu:bionic
 ARG PLANTUML_VERSION="1.2018.9"
 LABEL maintainer="mps299792458@gmail.com" \
       version=$PLANTUML_VERSION
