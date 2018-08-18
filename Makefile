@@ -5,5 +5,5 @@ build:
 
 release: build
 	@docker build -t hrektts/plantuml:$(shell cat Dockerfile | \
-		grep version | \
+		grep "ARG PLANTUML_VERSION" | \
 		sed -e 's/[^"]*"\([^"]*\)".*/\1/') .
