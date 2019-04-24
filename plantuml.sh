@@ -2,4 +2,4 @@
 
 set -e
 
-java -jar /usr/share/java/plantuml.jar $@
+java -Djava.awt.headless=true -jar /usr/share/java/plantuml.jar $@
