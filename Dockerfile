@@ -1,5 +1,5 @@
 FROM openjdk:11-slim
-ARG PLANTUML_VERSION="1.2019.5"
+ARG PLANTUML_VERSION="1.2021.4"
 LABEL maintainer="mps299792458@gmail.com" \
       version=$PLANTUML_VERSION
 
